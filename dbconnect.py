@@ -32,7 +32,7 @@ class Database:
 
 
     # Create Table
-    cursor.execute("DROP TABLE EVENTS")
+    cursor.execute("DROP TABLE IF EXISTS EVENTS")
     cursor.execute('''
             CREATE TABLE EVENTS (
     event_id INT PRIMARY KEY,
@@ -43,6 +43,29 @@ class Database:
     location VARCHAR(255),
     description TEXT)
     ''');
+
+
+    # cursor.execute("DROP TABLE MASTER") # NOT IN USE
+    # cursor.execute('''
+    #         CREATE TABLE MASTER (
+    #         "date"	TEXT,
+	#         "completion" INTEGER
+    #         )
+    # ''');
+
+    
+    # cursor.execute("DROP TABLE IF EXISTS TASKS") # IN USE DO NOT DROP PLZ
+#     cursor.execute('''
+#        CREATE TABLE "TASKS" (
+#     "task_id"    INTEGER NOT NULL,
+#     "task_name"  TEXT,
+#     "task_date"  TEXT,
+#     "completion" INTEGER,
+#     PRIMARY KEY("task_id")
+#        );
+# ''')
+                   
+
 
     # cInsert DataFrame to Table
     for row in df.itertuples():
@@ -74,17 +97,37 @@ class Database:
         # end_time = input("Enter the end time (HH:MM:SS): ")
         # location = input("Enter the location: ")
         # description = input("Enter a description: ")
+    
 
-    cursor.execute("SELECT * FROM events")
-    result = cursor.fetchall()
-    for row in result:
-        print(row)
-        print("\n")
-    conn.commit()
+    def task_adder_conn(task_name, task_date):
+        c = Database.conn.cursor()
+        c.execute("INSERT INTO TASKS (task_name, task_date, completion) VALUES (?, ?, ?)", (task_name, task_date, 0))
+        Database.conn.commit()
+        
+
+    def task_puller(task_date): #obj: print tasks for the day
+        Database.cursor.execute("SELECT * FROM TASKS WHERE task_date = ?", (task_date,))
+        temp = Database.cursor.fetchall()
+        Database.conn.commit()
+        return temp
+
+        
+    def task_completion(completion_status):
+        c = Database.conn.cursor()
+        c.execute("INSERT INTO TASKS (,,,completion_status)")
+        Database.conn.commit()
+        
+
+    # cursor.execute("SELECT* FROM TASKS") #general print
+    # result = cursor.fetchall()
+    # for row in result:
+    #     print(row)
+    #     print("\n")
+    # conn.commit()
+    
 
 
-
-    conn.close()
+    # conn.close()  
 
 
 

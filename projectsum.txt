@@ -13,10 +13,15 @@ List of modules:
     7. wiwkipedia
 
 
+Assistant Abilities
+    1. Task and To Do List 
+        i. 
 Tasks: 
-    1. Link Databse to Voice Input 
-        i. Speed up Process (ambient noise is causing issues)
+    1.  Determine reading and writing from database
+        i. Link Databse to Voice Input 
+            a. Speed up Process (ambient noise is causing issues)
 
     2. Create way to visualize database 
     3. Send database to server 
     4. Export project to raspberry pi 
+
