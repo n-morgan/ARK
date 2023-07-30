@@ -20,8 +20,8 @@ Tasks:
     1.  Determine reading and writing from database
         i. Link Databse to Voice Input 
             a. Speed up Process (ambient noise is causing issues)
-
-    2. Create way to visualize database 
-    3. Send database to server 
-    4. Export project to raspberry pi 
+    2. Integrate LLM ex. Vicuna (https://youtu.be/d4dk_7FptXk)
+    3. Create way to visualize database 
+    4. Send database to server 
+    5. Export project to raspberry pi 
 
