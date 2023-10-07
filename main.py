@@ -20,7 +20,7 @@ class Execution:
                 x = False
                 Execution.commands()
 
-                # self.recognize_speech(False)
+                # self.recognize_speech(False) 
 
     def commands():
         TTS.tts("Hello. I am Ark. What can I do for you today")
@@ -70,5 +70,3 @@ class Execution:
         pass
 
 Execution.check_wakeup_call()
-
-
